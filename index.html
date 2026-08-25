@@ -11,7 +11,7 @@
       :root { --ink:#101112; --paper:#f7f5f0; --lime:#d4fa54; --orange:#ff6b42; --muted:#706f6b; }
       * { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
-      body { margin:0; font-family:Manrope,Arial,sans-serif; color:var(--ink); background:var(--paper); overflow-x:hidden; }
+      body { margin:0; font-family:Manrope,Arial,sans-serif; color:var(--ink); background:radial-gradient(circle at 10% 18%, rgba(212,250,84,.34), transparent 25%), radial-gradient(circle at 90% 40%, rgba(255,107,66,.16), transparent 26%), linear-gradient(135deg, #f9f5ee 0%, #f1e8db 47%, #ebe6f5 100%); overflow-x:hidden; }
       a { color:inherit; text-decoration:none; }
       .nav { display:flex; align-items:center; justify-content:space-between; padding:26px 5.8vw; position:absolute; width:100%; z-index:4; }
       .logo { display:flex; align-items:center; gap:9px; font-size:22px; font-weight:800; letter-spacing:-1.2px; }
@@ -20,7 +20,7 @@
       .nav-links a:not(.nav-cta) { opacity:.75; transition:opacity .2s; }
       .nav-links a:hover { opacity:1; }
       .nav-cta { background:var(--ink); color:var(--paper); padding:11px 17px; border-radius:99px; }
-      .hero { min-height:780px; padding:160px 5.8vw 68px; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; }
+      .hero { min-height:780px; padding:160px 5.8vw 68px; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; background:linear-gradient(118deg, rgba(255,255,255,.25), rgba(255,255,255,0)); }
       .eyebrow { font:500 11px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.12em; display:flex; align-items:center; gap:9px; }
       .eyebrow::before { content:''; height:7px; width:7px; border-radius:50%; background:var(--orange); }
       h1 { max-width:980px; margin:30px 0 0; font-size:clamp(4rem,9vw,8.9rem); line-height:.88; letter-spacing:-.085em; font-weight:700; position:relative; z-index:2; }
@@ -54,7 +54,7 @@
       .project:nth-child(2) .project-art { width:210px; height:165px; right:5px; bottom:42px; background:#ff754b; border-radius:100% 0 100% 0; transform:rotate(27deg); }
       .project:nth-child(3) .project-art { width:150px; height:150px; border-radius:50%; right:24px; top:80px; background:repeating-conic-gradient(#101112 0 9deg, transparent 9deg 18deg); }
       .project:nth-child(4) .project-art { width:130px; height:130px; right:45px; bottom:25px; border:9px solid #ff6b42; transform:rotate(45deg); }
-      .about { padding:130px 5.8vw; display:grid; grid-template-columns:.9fr 1.6fr; gap:10vw; align-items:start; }
+      .about { padding:130px 5.8vw; display:grid; grid-template-columns:.9fr 1.6fr; gap:10vw; align-items:start; background:linear-gradient(110deg, rgba(255,255,255,.18), rgba(205,190,245,.22)); }
       .about p { margin:0; font-size:clamp(2.4rem,4.5vw,4.6rem); line-height:1.02; letter-spacing:-.075em; }
       .about p em { font-family:'Playfair Display',serif; font-weight:500; }
       .numbers { display:flex; gap:45px; margin-top:54px; }
@@ -66,7 +66,7 @@
       .contact a { display:inline-flex; margin-top:35px; font-size:15px; font-weight:800; padding:14px 20px; background:var(--ink); color:var(--paper); border-radius:99px; position:relative; z-index:1; transition:transform .2s; }
       .contact a:hover { transform:translateY(-3px); }
       .contact-graphic { position:absolute; width:330px; height:330px; border:44px solid var(--orange); border-radius:50%; right:4%; top:-100px; }
-      .register { padding:115px 5.8vw 125px; background:#eeeae1; display:grid; grid-template-columns:.85fr 1.15fr; gap:10vw; }
+      .register { padding:115px 5.8vw 125px; background:radial-gradient(circle at 8% 80%, rgba(255,107,66,.3), transparent 29%), radial-gradient(circle at 95% 10%, rgba(212,250,84,.56), transparent 31%), linear-gradient(115deg, #e9ddec, #efe7d8 52%, #dcebc6); display:grid; grid-template-columns:.85fr 1.15fr; gap:10vw; }
       .register-copy h2 { margin-top:20px; font-size:clamp(2.8rem,4.5vw,4.6rem); }
       .register-copy p { max-width:340px; margin:25px 0 0; color:#565651; font-size:15px; line-height:1.65; }
       .form-card { padding:36px; background:var(--paper); border-radius:5px; box-shadow:0 14px 36px rgba(16,17,18,.08); }
