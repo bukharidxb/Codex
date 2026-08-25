@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101112" />
+    <title>Onda — Design with feeling</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+
+      :root { --ink:#101112; --paper:#f7f5f0; --lime:#d4fa54; --orange:#ff6b42; --muted:#706f6b; }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; font-family:Manrope,Arial,sans-serif; color:var(--ink); background:var(--paper); overflow-x:hidden; }
+      a { color:inherit; text-decoration:none; }
+      .nav { display:flex; align-items:center; justify-content:space-between; padding:26px 5.8vw; position:absolute; width:100%; z-index:4; }
+      .logo { display:flex; align-items:center; gap:9px; font-size:22px; font-weight:800; letter-spacing:-1.2px; }
+      .logo-mark { width:24px; height:24px; background:var(--orange); border-radius:50% 50% 50% 4px; transform:rotate(-45deg); }
+      .nav-links { display:flex; gap:29px; align-items:center; font-size:13px; font-weight:700; }
+      .nav-links a:not(.nav-cta) { opacity:.75; transition:opacity .2s; }
+      .nav-links a:hover { opacity:1; }
+      .nav-cta { background:var(--ink); color:var(--paper); padding:11px 17px; border-radius:99px; }
+      .hero { min-height:780px; padding:160px 5.8vw 68px; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; }
+      .eyebrow { font:500 11px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.12em; display:flex; align-items:center; gap:9px; }
+      .eyebrow::before { content:''; height:7px; width:7px; border-radius:50%; background:var(--orange); }
+      h1 { max-width:980px; margin:30px 0 0; font-size:clamp(4rem,9vw,8.9rem); line-height:.88; letter-spacing:-.085em; font-weight:700; position:relative; z-index:2; }
+      h1 em { font-family:'Playfair Display',serif; font-weight:500; letter-spacing:-.065em; }
+      .hero-bottom { position:relative; z-index:2; display:flex; align-items:end; justify-content:space-between; gap:30px; margin-top:50px; }
+      .hero-copy { max-width:330px; color:#3d3e3c; font-size:16px; line-height:1.6; }
+      .circle-link { display:flex; align-items:center; justify-content:center; height:116px; width:116px; border:1px solid #242523; border-radius:50%; font-size:27px; transition:.25s ease; }
+      .circle-link:hover { background:var(--lime); transform:rotate(45deg); }
+      .shape { position:absolute; border-radius:50%; filter:blur(.1px); }
+      .sun { width:420px; height:420px; background:var(--lime); right:8vw; top:145px; }
+      .orbit { width:570px; height:570px; border:1px solid rgba(16,17,18,.22); right:-80px; top:75px; }
+      .dot { width:37px; height:37px; background:var(--orange); right:32vw; top:130px; }
+      .work { background:var(--ink); color:var(--paper); padding:115px 5.8vw 100px; }
+      .section-label { font:500 11px 'DM Mono',monospace; letter-spacing:.12em; text-transform:uppercase; color:#b4b4ae; }
+      .work-heading { display:flex; justify-content:space-between; align-items:end; margin:20px 0 50px; }
+      h2 { margin:0; font-size:clamp(2.8rem,5vw,5.2rem); letter-spacing:-.075em; line-height:.96; }
+      .all-work { font-size:13px; border-bottom:1px solid var(--paper); padding-bottom:5px; }
+      .project-grid { display:grid; grid-template-columns:1.15fr .85fr; gap:18px; }
+      .project { min-height:400px; position:relative; padding:28px; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; transition:transform .35s ease; }
+      .project:hover { transform:translateY(-7px); }
+      .project:nth-child(1) { background:#e77850; color:#21120e; }
+      .project:nth-child(2) { background:#b6a5ee; color:#171027; }
+      .project:nth-child(3) { background:#d5f94f; color:#101112; }
+      .project:nth-child(4) { background:#f0ede4; color:#101112; }
+      .project:nth-child(3), .project:nth-child(4) { min-height:310px; }
+      .project:nth-child(3) { grid-column:span 1; }
+      .project-tag { font:500 10px 'DM Mono',monospace; letter-spacing:.08em; text-transform:uppercase; }
+      .project h3 { font-size:clamp(2rem,3vw,3.4rem); line-height:.94; letter-spacing:-.07em; max-width:330px; margin:0; }
+      .project-art { position:absolute; pointer-events:none; }
+      .project:nth-child(1) .project-art { width:220px; height:220px; right:-20px; top:75px; border:15px solid #ffe9b7; border-radius:50%; box-shadow: -45px 42px 0 -18px #21120e; }
+      .project:nth-child(2) .project-art { width:210px; height:165px; right:5px; bottom:42px; background:#ff754b; border-radius:100% 0 100% 0; transform:rotate(27deg); }
+      .project:nth-child(3) .project-art { width:150px; height:150px; border-radius:50%; right:24px; top:80px; background:repeating-conic-gradient(#101112 0 9deg, transparent 9deg 18deg); }
+      .project:nth-child(4) .project-art { width:130px; height:130px; right:45px; bottom:25px; border:9px solid #ff6b42; transform:rotate(45deg); }
+      .about { padding:130px 5.8vw; display:grid; grid-template-columns:.9fr 1.6fr; gap:10vw; align-items:start; }
+      .about p { margin:0; font-size:clamp(2.4rem,4.5vw,4.6rem); line-height:1.02; letter-spacing:-.075em; }
+      .about p em { font-family:'Playfair Display',serif; font-weight:500; }
+      .numbers { display:flex; gap:45px; margin-top:54px; }
+      .number b { display:block; font-size:34px; letter-spacing:-.07em; }
+      .number span { display:block; font:500 10px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); margin-top:6px; }
+      .contact { margin:0 2.5vw 2.5vw; padding:94px 5.8vw; background:var(--lime); border-radius:4px; position:relative; overflow:hidden; }
+      .contact h2 { font-size:clamp(3rem,6vw,6rem); max-width:700px; position:relative; z-index:1; }
+      .contact h2 em { font-family:'Playfair Display',serif; font-weight:500; }
+      .contact a { display:inline-flex; margin-top:35px; font-size:15px; font-weight:800; padding:14px 20px; background:var(--ink); color:var(--paper); border-radius:99px; position:relative; z-index:1; transition:transform .2s; }
+      .contact a:hover { transform:translateY(-3px); }
+      .contact-graphic { position:absolute; width:330px; height:330px; border:44px solid var(--orange); border-radius:50%; right:4%; top:-100px; }
+      footer { display:flex; justify-content:space-between; padding:28px 5.8vw 38px; font-size:11px; color:#666660; font-family:'DM Mono',monospace; }
+      @media (max-width:720px) { .nav { padding:22px 6vw; } .nav-links a:not(.nav-cta) { display:none; } .hero { min-height:680px; padding:132px 6vw 44px; } .sun { width:280px; height:280px; right:-60px; top:200px; } .orbit { width:360px; height:360px; right:-120px; top:160px; } .dot { right:57vw; top:185px; } .hero-bottom { align-items:flex-end; } .hero-copy { font-size:14px; max-width:250px; } .circle-link { width:70px; height:70px; font-size:21px; flex:none; } .work,.about { padding:80px 6vw; } .project-grid { grid-template-columns:1fr; } .project { min-height:300px !important; } .work-heading { margin-bottom:32px; } .about { display:block; } .about .section-label { margin-bottom:25px; } .numbers { gap:25px; } .contact { margin:0 3vw 3vw; padding:70px 7vw; } .contact-graphic { width:190px; height:190px; border-width:28px; right:-55px; top:-45px; } footer { padding:25px 6vw; } }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <a class="logo" href="#top"><span class="logo-mark"></span>onda.</a>
+      <div class="nav-links"><a href="#work">Selected work</a><a href="#about">About us</a><a class="nav-cta" href="#contact">Let's talk ↗</a></div>
+    </nav>
+    <main id="top">
+      <section class="hero">
+        <div class="shape sun"></div><div class="shape orbit"></div><div class="shape dot"></div>
+        <div><div class="eyebrow">Independent creative studio</div><h1>Design with<br /><em>feeling.</em></h1></div>
+        <div class="hero-bottom"><p class="hero-copy">We shape identities, experiences and digital spaces for people and brands moving culture forward.</p><a class="circle-link" href="#work" aria-label="See our work">↓</a></div>
+      </section>
+      <section class="work" id="work">
+        <div class="section-label">01 — Selected work</div>
+        <div class="work-heading"><h2>Things we've<br />made lately.</h2><a class="all-work" href="#contact">View all projects ↗</a></div>
+        <div class="project-grid">
+          <article class="project"><span class="project-tag">Brand strategy · 2025</span><div class="project-art"></div><h3>Muse<br />Harvest</h3></article>
+          <article class="project"><span class="project-tag">Digital experience · 2025</span><div class="project-art"></div><h3>Arcade<br />Summer</h3></article>
+          <article class="project"><span class="project-tag">Identity · 2024</span><div class="project-art"></div><h3>Suntide</h3></article>
+          <article class="project"><span class="project-tag">Campaign · 2024</span><div class="project-art"></div><h3>Common<br />Ground</h3></article>
+        </div>
+      </section>
+      <section class="about" id="about">
+        <div class="section-label">02 — The studio</div>
+        <div><p>Ideas get better when they have a little <em>room to breathe.</em> We are a close-knit team of thinkers, makers and curious humans.</p><div class="numbers"><div class="number"><b>12</b><span>Years wandering</span></div><div class="number"><b>48</b><span>Kind partners</span></div><div class="number"><b>∞</b><span>Good questions</span></div></div></div>
+      </section>
+      <section class="contact" id="contact"><div class="contact-graphic"></div><h2>Got a bright idea?<br /><em>Let's make it real.</em></h2><a href="mailto:hello@onda.studio">hello@onda.studio ↗</a></section>
+    </main>
+    <footer><span>© 2025 ONDA STUDIO</span><span>LONDON · EVERYWHERE</span></footer>
+  </body>
+</html>
